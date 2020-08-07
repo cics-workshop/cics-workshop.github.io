@@ -1,0 +1,12 @@
+- name: Home
+  icon: "fas fa-home"
+
+- name: Attendee information
+  icon: "fas fa-info"
+  path: p
+  url: attendee
+
+- name: Agenda
+  icon: "fas fa-calendar"
+  path: p
+  url: agenda
