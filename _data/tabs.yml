@@ -3,10 +3,8 @@
 
 - name: Attendee information
   icon: "fas fa-info"
-  path: p
-  url: attendee
+  url: "attendee"
 
 - name: Agenda
   icon: "fas fa-calendar"
-  path: p
-  url: agenda
+  url: "agenda"

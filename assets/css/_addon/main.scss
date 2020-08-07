@@ -767,17 +767,22 @@ table {
     border-bottom: solid 2px rgba(210, 215, 217, 0.75);
     +tbody tr {
       &:nth-child(2n) {
-        background-color: var(--tb-even-bg);
+        background-color: #fff;
       }
       &:nth-child(2n + 1) {
-        background-color: var(--tb-odd-bg);
+        background-color: #e8f4ea;
       }
       & {
         border-bottom: 1px solid var(--tb-border-color);
       }
+      td {
+        vertical-align: top !important;
+      }
     }
     th {
-      @extend %table-cell;
+      background-color: #004F59;
+      color: #fff;
+      text-align: center !important;
     }
   }
 
