@@ -7,10 +7,51 @@ layout: mainpage
 # MIT Licensed
 ---
 
-<div style="text-align: center">
-  <h2><strong>The 2020 Cyberinfrastructure/Cybersecurity Workshop</strong></h2>
-  <p>A virtual training event for cybersecurity and cyberinfrastructure professionals</p>
+<div style="text-align: center; margin-bottom: 2em">
+    <h2><strong>The 2020 Cyberinfrastructure/Cybersecurity Workshop</strong></h2>
+    <p>A virtual training event for cybersecurity and cyberinfrastructure professionals</p>
+    <p><strong>August 18 and August 20, 2020</strong> –
+        <span style="font-size: 0.9em; color: #666"><i>Virtual Event</i></span></p>
+</div>
 
+<div style="text-align: center; margin-left: 10em; margin-right: 10em; background-color: #f7f7f7; border: 1px solid #ccc; padding: 1em; border-radius: 0.5em; box-shadow: #ccc 3px 3px 3px">
+    <p><strong>Registration is now closed</strong></p>
+
+    <p>
+        <strong>Note:</strong> Response by the community has been overwhelming. To reduce technolgy risks, registration
+        has been limited to 250 and is now full.
+        <br/>
+        If you would like to be waitlisted and/or receive notification when recordings or slides are available, please
+        complete the waitlist registration below.
+    </p>
+
+    <a href="https://researchsoc.iu.edu/training/ci-cs-workshop-registration.html" target="_blank">
+        <button style="padding: 0.5em; border-radius: 0.5em; background-color: #004F59; color: #fff; border: 0; cursor: pointer">
+            Register for Wait List
+        </button>
+    </a>
+</div>
+
+<div class="p-5">
+    <p>
+        This unique event is focused on the cyberinfrastructure and cybersecurity needs of National Science Foundation
+        research facilities and other research projects.
+    </p>
+    <p>
+        This is a how-to event focusing on actionable strategies, tactics, and techniques. With attendance limited to
+        250 and designed to maximize connection, this inaugural event includes interactive training, breakout
+        discussions, a virtual hallway for networking, and open forums/office hours. To minimize Zoom fatigue, we've
+        included a day between sessions and plan numerous, extended breaks.
+    </p>
+    <p>
+        This workshop complements the upcoming 2020 NSF Cybersecurity Summit for Large Facilities and
+        Cyberinfrastructure. Both address the topics of cyberinfrastructure and cybersecurity. Security Log Analysis
+        training, long-featured at the NSF Summit, will also be available at the CI/CS Workshop this year. With the
+        exception of this workshop, content and format differ. The CI/CS Workshop is a series of short talks, open
+        forums/office hours, and one panel. Both events are of value to cybersecurity and cyberinfrastructure
+        professionals supporting NSF research, and both would make excellent elements to include in a professional
+        development and training program
+    </p>
 </div>
 
 {% assign pinned = site.posts | where_exp: "item", "item.pin == true"  %}
@@ -23,11 +64,11 @@ layout: mainpage
 {% assign pinned_num = pinned.size | minus: offset %}
 
 {% if pinned_num > 0 %}
-  {% for i in (offset..pinned.size) limit: pinned_num %}
-    {% assign posts = posts | push: pinned[i] %}
-  {% endfor %}
+{% for i in (offset..pinned.size) limit: pinned_num %}
+{% assign posts = posts | push: pinned[i] %}
+{% endfor %}
 {% else %}
-  {% assign pinned_num = 0 %}
+{% assign pinned_num = 0 %}
 {% endif %}
 
 
@@ -36,57 +77,57 @@ layout: mainpage
 {% assign default_beg = offset | minus: pinned.size %}
 
 {% if default_beg < 0 %}
-  {% assign default_beg = 0 %}
+{% assign default_beg = 0 %}
 {% endif %}
 
 {% assign default_num = paginator.posts | size | minus: pinned_num  %}
 {% assign default_end = default_beg | plus: default_num | minus: 1 %}
 
 {% if default_num > 0 %}
-  {% for i in (default_beg..default_end) %}
-    {% assign posts = posts | push: default[i] %}
-  {% endfor %}
+{% for i in (default_beg..default_end) %}
+{% assign posts = posts | push: default[i] %}
+{% endfor %}
 {% endif %}
 
 
 <div id="post-list">
 
-{% for post in posts %}
+    {% for post in posts %}
 
-  <div class="post-preview">
-    <div class="d-flex justify-content-between pr-xl-2">
-      <h1><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h1>
-      {% if post.pin %}
-        <i class="fas fa-thumbtack fa-fw text-muted mt-1 ml-2 mt-xl-2" data-toggle="tooltip" data-placement="left"
-        title="Pinned"></i>
-      {% endif %}
-    </div>
-    <div class="post-content">
-      <p>
-        {% include no-linenos.html content=post.content %}
-        {{ content | markdownify | strip_html | truncate: 200 }}
-      </p>
-    </div>
+    <div class="post-preview">
+        <div class="d-flex justify-content-between pr-xl-2">
+            <h1><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h1>
+            {% if post.pin %}
+            <i class="fas fa-thumbtack fa-fw text-muted mt-1 ml-2 mt-xl-2" data-toggle="tooltip" data-placement="left"
+               title="Pinned"></i>
+            {% endif %}
+        </div>
+        <div class="post-content">
+            <p>
+                {% include no-linenos.html content=post.content %}
+                {{ content | markdownify | strip_html | truncate: 200 }}
+            </p>
+        </div>
 
-    <div class="post-meta text-muted">
-      <!-- posted date -->
-      <i class="far fa-clock fa-fw"></i>
-      {% include timeago.html date=post.date tooltip=true %}
+        <div class="post-meta text-muted">
+            <!-- posted date -->
+            <i class="far fa-clock fa-fw"></i>
+            {% include timeago.html date=post.date tooltip=true %}
 
-      <!-- page views -->
-      {% if site.google_analytics.pv.enabled %}
-      <i class="far fa-eye fa-fw"></i>
-      <span id="pv_{{-post.title-}}" class="pageviews">
+            <!-- page views -->
+            {% if site.google_analytics.pv.enabled %}
+            <i class="far fa-eye fa-fw"></i>
+            <span id="pv_{{-post.title-}}" class="pageviews">
         <i class="fas fa-spinner fa-spin fa-fw"></i>
       </span>
-      {% endif %}
-    </div>
-  </div> <!-- .post-review -->
+            {% endif %}
+        </div>
+    </div> <!-- .post-review -->
 
-{% endfor %}
+    {% endfor %}
 
 </div> <!-- #post-list -->
 
 {% if paginator.total_pages > 0 %}
-  {% include post-paginator.html %}
+{% include post-paginator.html %}
 {% endif %}
